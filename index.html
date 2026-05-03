@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="calculator glass" aria-label="Scientific calculator">
+      <header class="display-wrap glass-inner">
+        <div class="display-top">
+          <p id="preview" class="preview" aria-live="polite"></p>
+          <div class="display-actions">
+            <button id="settingsBtn" class="icon-btn" aria-label="Open settings">⚙</button>
+            <button id="copyResult" class="icon-btn" aria-label="Copy result">⧉</button>
+          </div>
+        </div>
+        <div id="expression" class="expression" aria-live="polite">0</div>
+        <output id="result" class="result" aria-live="polite">0</output>
+      </header>
+
+      <div class="keypad" id="keypad" role="group" aria-label="Calculator keys">
+        <button data-action="memory-clear" aria-label="Memory clear">MC</button>
+        <button data-action="memory-recall" aria-label="Memory recall">MR</button>
+        <button data-action="memory-add" aria-label="Memory add">M+</button>
+        <button data-action="memory-subtract" aria-label="Memory subtract">M-</button>
+        <button data-action="clear" class="danger" aria-label="Clear">C</button>
+
+        <button data-action="ans">ANS</button>
+        <button data-value="(">(</button>
+        <button data-value=")">)</button>
+        <button data-action="backspace" id="backspaceBtn">⌫</button>
+        <button data-value="/">÷</button>
+
+        <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button data-value="*">×</button><button data-value="%">%</button>
+        <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button data-value="-">−</button><button data-value="^">^</button>
+        <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button data-value="+">+</button><button data-action="equals" class="equals">=</button>
+        <button data-value="0" class="span-2">0</button><button data-value=".">.</button>
+
+        <button class="sci" data-fn="sqrt">√</button><button class="sci" data-fn="sin">sin</button><button class="sci" data-fn="cos">cos</button><button class="sci" data-fn="tan">tan</button><button class="sci" data-fn="log">log</button>
+        <button class="sci" data-fn="ln">ln</button>
+      </div>
+    </section>
+
+    <aside class="history-panel glass" aria-label="Calculation history">
+      <div class="history-head">
+        <h2 id="historyTitle">History</h2>
+        <button id="clearHistoryBtn" class="icon-btn" aria-label="Clear history">🗑</button>
+      </div>
+      <ul id="historyList"></ul>
+    </aside>
+  </main>
+
+  <dialog id="settingsModal" class="glass" aria-label="Settings">
+    <h3 id="settingsTitle">Settings</h3>
+    <label><span id="langLabel">Language</span>
+      <select id="languageSelect"><option value="en">English</option><option value="ar">العربية</option></select>
+    </label>
+    <label><span id="themeLabel">Theme</span>
+      <select id="themeSelect"><option>dark</option><option>light</option><option>amoled</option><option>blue</option><option>neon</option></select>
+    </label>
+    <label><input type="checkbox" id="soundToggle" /> <span id="soundLabel">Sound</span></label>
+    <label><input type="checkbox" id="vibrationToggle" /> <span id="vibrationLabel">Vibration</span></label>
+    <label><span id="fontLabel">Font Size</span>
+      <select id="fontSelect"><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select>
+    </label>
+    <label><input type="checkbox" id="scientificToggle" checked /> <span id="sciLabel">Scientific Mode</span></label>
+    <button id="closeSettings" class="equals">Close</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
